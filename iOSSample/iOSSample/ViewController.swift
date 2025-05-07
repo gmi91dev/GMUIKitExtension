@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             .gmCenterX()
             .gmTop(20, to: rect.bottomAnchor)
         
-        Logger.TestFunc()
+        
     }
 
 
