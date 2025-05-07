@@ -4,9 +4,6 @@
 import Foundation
 
 public final class Logger: LogPrintable {
-    public static func TestFunc() {
-        DPrint("测试方法...")
-    }
     private init() {}
 }
 
