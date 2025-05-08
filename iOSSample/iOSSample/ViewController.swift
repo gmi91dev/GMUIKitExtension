@@ -31,29 +31,11 @@ class ViewController: UIViewController {
             .gmAdd(to: view)
             .gmFull()
         
-        let rect = UIView()
-            .gmSize(100)
-            .gmRadius(20)
-            .gmBackgroundColor(.random)
-            .gmAdd(to: view)
-            .gmCenter()
         
-        GMCornerRadiusView()
-            .gmSize(200)
-            .gmBackgroundColor(.random)
-            .gmRadius(
-                .topLeft(10),
-                .bottomRight(50),
-                borderWidth: 10,
-                borderColor: .orange
-            )
-            .gmAdd(to: view)
-            .gmCenterX()
-            .gmTop(20, to: rect.bottomAnchor)
-        
-        
+                    
     }
 
+    
 
 }
 

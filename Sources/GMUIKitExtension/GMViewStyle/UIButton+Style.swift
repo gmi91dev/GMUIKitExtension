@@ -16,13 +16,34 @@ public struct GMButtonStyle {
     var image: UIImage?
     var backgroundImage: UIImage?
     var state: UIControl.State
+    
+    public init(
+        attributedTitle: NSAttributedString? = nil,
+        title: String? = nil,
+        titleColor: UIColor? = nil,
+        font: UIFont? = nil,
+        titleShadowColor: UIColor? = nil,
+        image: UIImage? = nil,
+        backgroundImage: UIImage? = nil,
+        state: UIControl.State
+    ) {
+        self.attributedTitle = attributedTitle
+        self.title = title
+        self.titleColor = titleColor
+        self.font = font
+        self.titleShadowColor = titleShadowColor
+        self.image = image
+        self.backgroundImage = backgroundImage
+        self.state = state
+    }
+    
 }
 
 public extension UIButton {
     
     // 设置 button style
     @discardableResult
-    func gmStyle(_ buttonStyles: GMButtonStyle...) -> Self {
+    func gmButtonStyle(_ buttonStyles: GMButtonStyle...) -> Self {
         
         for s in buttonStyles {
             if let img = s.image {
