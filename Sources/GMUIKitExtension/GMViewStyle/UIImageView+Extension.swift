@@ -7,10 +7,10 @@
 
 import UIKit
 
-public extension UIImageView {
+extension UIImageView {
     
     @discardableResult
-    func gmImage(named name: String) -> Self {
+    public func gmImage(named name: String) -> Self {
         image = UIImage(named: name)
         return self
     }

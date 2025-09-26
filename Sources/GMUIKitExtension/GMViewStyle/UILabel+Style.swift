@@ -7,16 +7,16 @@
 
 import UIKit
 
-public extension UILabel {
+extension UILabel {
     
     @discardableResult
-    func gmLines(_ lines: Int = 0) -> Self {
+    public func gmLines(_ lines: Int = 0) -> Self {
         numberOfLines = lines
         return self
     }
     
     @discardableResult
-    func gmText(_ text: String, font: UIFont = .systemFont(ofSize: 16), alignment: NSTextAlignment? = nil) -> Self {
+    public func gmText(_ text: String, font: UIFont = .systemFont(ofSize: 16), alignment: NSTextAlignment? = nil) -> Self {
         self.text = text
         self.font = font
         if let al = alignment {
@@ -26,13 +26,13 @@ public extension UILabel {
     }
     
     @discardableResult
-    func gmAttributedText(_ text: String, attributes: [NSAttributedString.Key: Any]?) -> Self {
+    public func gmAttributedText(_ text: String, attributes: [NSAttributedString.Key: Any]?) -> Self {
         attributedText = NSAttributedString(string: text, attributes: attributes)
         return self
     }
     
     @discardableResult
-    func gmForgroundColor(_ color: UIColor? = .black) -> Self {
+    public func gmForgroundColor(_ color: UIColor? = .black) -> Self {
         textColor = color
         return self
     }

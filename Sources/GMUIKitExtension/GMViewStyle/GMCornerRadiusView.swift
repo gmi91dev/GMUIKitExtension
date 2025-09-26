@@ -44,7 +44,7 @@ public class GMCornerRadiusView: UIView {
         updateMask()
     }
     
-    func updateMask() {
+    private func updateMask() {
         guard corners.count > 0 else { return }
         let path = UIBezierPath.pathForCorners(in: bounds, corners: corners)
         maskLayer.path = path.cgPath

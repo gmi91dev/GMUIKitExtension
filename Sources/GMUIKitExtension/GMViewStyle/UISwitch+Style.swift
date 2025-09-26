@@ -7,16 +7,16 @@
 
 import UIKit
 
-public extension UISwitch {
+extension UISwitch {
     
     @discardableResult
-    func gmOnValueChange(_ target: Any?, action: Selector) -> Self {
+    public func gmOnValueChange(_ target: Any?, action: Selector) -> Self {
         addTarget(target, action: action, for: .valueChanged)
         return self
     }
     
     @discardableResult
-    func gmSetOn(_ value: Bool, animated: Bool = true) -> Self {
+    public func gmSetOn(_ value: Bool, animated: Bool = true) -> Self {
         setOn(value, animated: animated)
         return self
     }

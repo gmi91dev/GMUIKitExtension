@@ -32,7 +32,7 @@ public enum WRMaskCorners {
 extension UIBezierPath {
     
     /// 圆角矩形 ( all >> right > left >> bottom >> top >> topLeft, topRight, borromLeft, bottomRight )
-    static func pathForCorners(in rect: CGRect, corners: [WRMaskCorners]) -> UIBezierPath {
+    public static func pathForCorners(in rect: CGRect, corners: [WRMaskCorners]) -> UIBezierPath {
         let path = UIBezierPath()
         path.lineJoinStyle = .round
 
@@ -190,7 +190,7 @@ extension UIBezierPath {
     }
     
     /// 绘制正多边形
-    static func polygon(in rect: CGRect, sides: Int, lineWidth: CGFloat, cornerRadius: CGFloat) -> UIBezierPath {
+    public static func polygon(in rect: CGRect, sides: Int, lineWidth: CGFloat, cornerRadius: CGFloat) -> UIBezierPath {
         let path = UIBezierPath()
         
         let theta = (2.0 * Double.pi) / Double(sides)                       // how much to turn at every corner

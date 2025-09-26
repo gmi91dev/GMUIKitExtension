@@ -27,7 +27,8 @@ public class GMGradientLabel: UILabel {
      (0, 1)|--------|(1, 1)
      */
     // 设置渐变layer，只有GMGradientView有此方法
-    func gmGradient(_ colors: [UIColor] = [.black, .white], startPoint: CGPoint = CGPoint(x: 0, y: 0), endPoint: CGPoint = CGPoint(x: 1, y: 1), gradientType: CAGradientLayerType = .axial, cornerRadius: CGFloat? = nil, maskedCorners: GMGradientMaskCorners = .all) -> Self {
+    @discardableResult
+    public func gmGradient(_ colors: [UIColor] = [.black, .white], startPoint: CGPoint = CGPoint(x: 0, y: 0), endPoint: CGPoint = CGPoint(x: 1, y: 1), gradientType: CAGradientLayerType = .axial, cornerRadius: CGFloat? = nil, maskedCorners: GMGradientMaskCorners = .all) -> Self {
         
         gradientLayer.colors = colors.map({$0.cgColor})
         gradientLayer.startPoint = startPoint

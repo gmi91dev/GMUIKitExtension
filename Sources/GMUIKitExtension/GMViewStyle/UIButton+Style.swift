@@ -39,11 +39,11 @@ public struct GMButtonStyle {
     
 }
 
-public extension UIButton {
+extension UIButton {
     
     // 设置 button style
     @discardableResult
-    func gmButtonStyle(_ buttonStyles: GMButtonStyle...) -> Self {
+    public func gmButtonStyle(_ buttonStyles: GMButtonStyle...) -> Self {
         
         for s in buttonStyles {
             if let img = s.image {
@@ -75,7 +75,7 @@ public extension UIButton {
     
     // 按钮点击
     @discardableResult
-    func gmOnTap(_ target: Any?, for event: UIControl.Event, action: Selector) -> Self {
+    public func gmOnTap(_ target: Any?, for event: UIControl.Event, action: Selector) -> Self {
         addTarget(target, action: action, for: event)
         return self
     }

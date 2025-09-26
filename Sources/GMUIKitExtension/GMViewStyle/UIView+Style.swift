@@ -7,11 +7,11 @@
 
 import UIKit
 
-public extension UIView {
+extension UIView {
     
     // 圆角
     @discardableResult
-    func gmRadius(_ length: CGFloat = 8, maskToBounds: Bool = false) -> Self {
+    public func gmRadius(_ length: CGFloat = 8, maskToBounds: Bool = false) -> Self {
         layer.cornerRadius = length
         layer.masksToBounds = maskToBounds
         return self
@@ -19,7 +19,7 @@ public extension UIView {
     
     // 描边
     @discardableResult
-    func gmBorder(_ length: CGFloat = 1.0, color: UIColor = .lightGray) -> Self {
+    public func gmBorder(_ length: CGFloat = 1.0, color: UIColor = .lightGray) -> Self {
         layer.borderWidth = length
         layer.borderColor = color.cgColor
         return self
@@ -27,7 +27,7 @@ public extension UIView {
     
     // 阴影
     @discardableResult
-    func gmShadow(_ color: UIColor = .black, offset: CGSize = CGSize(width: 3, height: 3), radius: CGFloat = 1, opacity: Float = 1) -> Self {
+    public func gmShadow(_ color: UIColor = .black, offset: CGSize = CGSize(width: 3, height: 3), radius: CGFloat = 1, opacity: Float = 1) -> Self {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -37,21 +37,21 @@ public extension UIView {
     
     // 设置背景
     @discardableResult
-    func gmBackgroundColor(_ color: UIColor? = .white) -> Self {
+    public func gmBackgroundColor(_ color: UIColor? = .white) -> Self {
         backgroundColor = color
         return self
     }
     
     // 添加到(此方法要在布局方法之前调用)
     @discardableResult
-    func gmAdd(to targetView: UIView) -> Self {
+    public func gmAdd(to targetView: UIView) -> Self {
         targetView.addSubview(self)
         return self
     }
     
     // 透明度
     @discardableResult
-    func gmAlpha(_ value: CGFloat) -> Self {
+    public func gmAlpha(_ value: CGFloat) -> Self {
         var tmp: CGFloat = 0.0
         tmp = max(0, value)
         tmp = min(1.0, tmp)
@@ -60,39 +60,39 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmContentMode(_ mode: UIView.ContentMode) -> Self {
+    public func gmContentMode(_ mode: UIView.ContentMode) -> Self {
         contentMode = .center
         return self
     }
     
     @discardableResult
-    func gmHidden(_ value: Bool = true) -> Self {
+    public func gmHidden(_ value: Bool = true) -> Self {
         isHidden = value
         return self
     }
     
     @discardableResult
-    func gmMask(_ view: UIView) -> Self {
+    public func gmMask(_ view: UIView) -> Self {
         mask = view
         return self
     }
     
     @discardableResult
-    func gmEnableUserInteraction(_ value: Bool = true) -> Self {
+    public func gmEnableUserInteraction(_ value: Bool = true) -> Self {
         isUserInteractionEnabled = value
         return self
     }
     
     // 触摸事件
     @discardableResult
-    func gmGesture(_ gesture: UIGestureRecognizer) -> Self {
+    public func gmGesture(_ gesture: UIGestureRecognizer) -> Self {
         addGestureRecognizer(gesture)
         return self
     }
     
     /// 多边形遮罩
     @discardableResult
-    func gmPolygon(size: CGFloat, sides: Int = 3, lineWidth: CGFloat = 0, radius: CGFloat = 0, borderColor: UIColor = .purple) -> Self {
+    public func gmPolygon(size: CGFloat, sides: Int = 3, lineWidth: CGFloat = 0, radius: CGFloat = 0, borderColor: UIColor = .purple) -> Self {
         
         guard sides > 2 else { return self }
         

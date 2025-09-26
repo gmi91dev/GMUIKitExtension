@@ -36,16 +36,16 @@ private enum GMLayoutDimensionAttribute {
     case height(_ constant: CGFloat = 0.0, _ multiplier: CGFloat = 1.0)
 }
 
-public extension UIView {
+extension UIView {
     
     // 平铺
     @discardableResult
-    func gmFull(ignoreSafeArea: Bool = true) -> Self {
+    public func gmFull(ignoreSafeArea: Bool = true) -> Self {
         return gmPadding(0, ignoreSafeArea: ignoreSafeArea)
     }
         
     @discardableResult
-    func gmCenter(x: CGFloat = 0.0, y: CGFloat = 0.0, to targetView: UIView? = nil, complete: ((_ x: NSLayoutConstraint, _ y: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmCenter(x: CGFloat = 0.0, y: CGFloat = 0.0, to targetView: UIView? = nil, complete: ((_ x: NSLayoutConstraint, _ y: NSLayoutConstraint)->Void)? = nil) -> Self {
         
         var tmpView = targetView
         if tmpView == nil {
@@ -70,10 +70,10 @@ public extension UIView {
 }
 
 // MARK: - Padding
-public extension UIView {
+extension UIView {
     
     @discardableResult
-    func gmPadding(_ value: CGFloat = 8.0, on view: UIView? = nil, ignoreSafeArea: Bool = true, useaLeading: Bool = false, complete: ((_ left: NSLayoutConstraint, _ top: NSLayoutConstraint, _ right: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmPadding(_ value: CGFloat = 8.0, on view: UIView? = nil, ignoreSafeArea: Bool = true, useaLeading: Bool = false, complete: ((_ left: NSLayoutConstraint, _ top: NSLayoutConstraint, _ right: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
         if useaLeading {
             return gmPadding(left: value, top: value, right: value, bottom: value, on: view, ignoreSafeArea: ignoreSafeArea, complete: complete)
         }else {
@@ -82,7 +82,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmPadding(left leftConstant: CGFloat, top topConstant: CGFloat, right rightConstant: CGFloat, bottom bottomConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ left: NSLayoutConstraint, _ top: NSLayoutConstraint, _ right: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmPadding(left leftConstant: CGFloat, top topConstant: CGFloat, right rightConstant: CGFloat, bottom bottomConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ left: NSLayoutConstraint, _ top: NSLayoutConstraint, _ right: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
                 
         var tmpView = targetView
         if tmpView == nil {
@@ -100,7 +100,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmPadding(leading leadingConstant: CGFloat, top topConstant: CGFloat, trailing trailingConstant: CGFloat, bottom bottomConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ leading: NSLayoutConstraint, _ top: NSLayoutConstraint, _ trailing: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmPadding(leading leadingConstant: CGFloat, top topConstant: CGFloat, trailing trailingConstant: CGFloat, bottom bottomConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ leading: NSLayoutConstraint, _ top: NSLayoutConstraint, _ trailing: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
                 
         var tmpView = targetView
         if tmpView == nil {
@@ -119,10 +119,10 @@ public extension UIView {
 }
 
 // MARK: - Horizontal layout
-public extension UIView {
+extension UIView {
     
     @discardableResult
-    func gmHorizontal(_ value: CGFloat = 0.0, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, useLeading: Bool = false, complete: ((_ left: NSLayoutConstraint, _ right: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmHorizontal(_ value: CGFloat = 0.0, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, useLeading: Bool = false, complete: ((_ left: NSLayoutConstraint, _ right: NSLayoutConstraint)->Void)? = nil) -> Self {
         
         if useLeading {
             return gmHorizontal(leading: value, trailing: value, on: targetView, ignoreSafeArea: ignoreSafeArea, complete: complete)
@@ -132,7 +132,7 @@ public extension UIView {
     }
         
     @discardableResult
-    func gmHorizontal(left leftConstant: CGFloat, right rightConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ left: NSLayoutConstraint, _ right: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmHorizontal(left leftConstant: CGFloat, right rightConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ left: NSLayoutConstraint, _ right: NSLayoutConstraint)->Void)? = nil) -> Self {
                 
         var tmpView = targetView
         if tmpView == nil {
@@ -148,7 +148,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmHorizontal(leading leadingConstant: CGFloat, trailing trailingConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ leading: NSLayoutConstraint, _ trailing: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmHorizontal(leading leadingConstant: CGFloat, trailing trailingConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ leading: NSLayoutConstraint, _ trailing: NSLayoutConstraint)->Void)? = nil) -> Self {
                 
         var tmpView = targetView
         if tmpView == nil {
@@ -166,7 +166,7 @@ public extension UIView {
     
     // left
     @discardableResult
-    func gmLeft(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmLeft(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .left(constant), relation: relation, to: targetAnchor) {
                 complete?(constraint)
@@ -184,7 +184,7 @@ public extension UIView {
     
     // right
     @discardableResult
-    func gmRight(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmRight(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .right(constant), relation: relation, to: targetAnchor) {
                 complete?(constraint)
@@ -201,7 +201,7 @@ public extension UIView {
     
     // center x
     @discardableResult
-    func gmCenterX(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmCenterX(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .centerX(constant), relation: relation, to: targetAnchor) {
@@ -221,7 +221,7 @@ public extension UIView {
     
     // leading
     @discardableResult
-    func gmLeading(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmLeading(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .leading(constant), relation: relation, to: targetAnchor) {
@@ -241,7 +241,7 @@ public extension UIView {
     
     // trailing
     @discardableResult
-    func gmTrailing(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmTrailing(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutXAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .trailing(constant), relation: relation, to: targetAnchor) {
                 complete?(constraint)
@@ -319,10 +319,10 @@ public extension UIView {
 }
 
 // MARK: - Vertical layout
-public extension UIView {
+extension UIView {
     
     @discardableResult
-    func gmVertical(_ value: CGFloat = 0.0, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ top: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmVertical(_ value: CGFloat = 0.0, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ top: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
                 
         var tmpView = targetView
         if tmpView == nil {
@@ -337,7 +337,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmVertical(top topConstant: CGFloat, bottom bottomConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ top: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmVertical(top topConstant: CGFloat, bottom bottomConstant: CGFloat, on targetView: UIView? = nil, ignoreSafeArea: Bool = true, complete: ((_ top: NSLayoutConstraint, _ bottom: NSLayoutConstraint)->Void)? = nil) -> Self {
                 
         var tmpView = targetView
         if tmpView == nil {
@@ -354,7 +354,7 @@ public extension UIView {
     // MARK: - Base vertical layout
     
     @discardableResult
-    func gmTop(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutYAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmTop(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutYAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .top(constant), relation: relation, to: targetAnchor) {
                 complete?(constraint)
@@ -372,7 +372,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmBottom(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutYAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmBottom(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutYAxisAnchor? = nil, ignoreSafeArea: Bool = true, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .bottom(constant), relation: relation, to: targetAnchor) {
@@ -391,7 +391,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmCenterY(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutYAxisAnchor? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmCenterY(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, to layoutAnchor: NSLayoutYAxisAnchor? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         
         if let targetAnchor = layoutAnchor {
             if let constraint = add(attribute: .centerY(constant), relation: relation, to: targetAnchor) {
@@ -468,10 +468,10 @@ public extension UIView {
 }
 
 // MARK - Dimesion layout
-public extension UIView {
+extension UIView {
 
     @discardableResult
-    func gmAspectRatio(_ ratio: GMAspectRatio = .widthToHeight, constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, multiplier: CGFloat = 1.0, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmAspectRatio(_ ratio: GMAspectRatio = .widthToHeight, constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, multiplier: CGFloat = 1.0, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         
         gmStartLayout()
         
@@ -497,12 +497,12 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmSize(_ squareConstant: CGFloat = 30, complete: ((_ witdh: NSLayoutConstraint, _ height: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmSize(_ squareConstant: CGFloat = 30, complete: ((_ witdh: NSLayoutConstraint, _ height: NSLayoutConstraint)->Void)? = nil) -> Self {
         return gmSize(width: squareConstant, height: squareConstant, complete: complete)
     }
     
     @discardableResult
-    func gmSize(width: CGFloat, height: CGFloat, _ relation: GMLayoutRelation = .equal, complete: ((_ witdh: NSLayoutConstraint, _ height: NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmSize(width: CGFloat, height: CGFloat, _ relation: GMLayoutRelation = .equal, complete: ((_ witdh: NSLayoutConstraint, _ height: NSLayoutConstraint)->Void)? = nil) -> Self {
 
         if let width = add(attribute: .width(width, 1.0), relation: relation),
             let height = add(attribute: .height(height, 1.0), relation: relation) {
@@ -512,7 +512,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmWidth(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, multiplier: CGFloat = 1.0, to layoutAnchor: NSLayoutDimension? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmWidth(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, multiplier: CGFloat = 1.0, to layoutAnchor: NSLayoutDimension? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         if let constraint = add(attribute: .width(constant, multiplier), relation: relation, to: layoutAnchor) {
             complete?(constraint)
         }
@@ -520,7 +520,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func gmHeight(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, multiplier: CGFloat = 1.0, to layoutAnchor: NSLayoutDimension? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
+    public func gmHeight(_ constant: CGFloat = 0.0, _ relation: GMLayoutRelation = .equal, multiplier: CGFloat = 1.0, to layoutAnchor: NSLayoutDimension? = nil, complete: ((NSLayoutConstraint)->Void)? = nil) -> Self {
         if let constraint = add(attribute: .height(constant, multiplier), relation: relation, to: layoutAnchor) {
             complete?(constraint)
         }
